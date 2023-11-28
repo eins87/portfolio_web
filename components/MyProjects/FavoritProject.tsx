@@ -1,12 +1,13 @@
 import { Suspense } from 'react'
 import FavoritProjectSkeleton from './LoadingSkeleton/FavoritProjectSkeleton'
 import { getFavoriteRepo }  from '@/lib/getGithubRepos'
+import { FavoriteRepos } from "@/lib/gqlQueries"
 import Image from 'next/image'
 import squareCard  from '@/public/assets/squareCard.png'
 import getLogoPath from '@/lib/getLogo'
 
 async function FavoritProject() {
-  const favoriteRepo = await getFavoriteRepo()
+  const favoriteRepo = await getFavoriteRepo(FavoriteRepos)
   return (
     <Suspense fallback={<FavoritProjectSkeleton />}>
       <div className="flex flex-wrap items-center mx-auto max-w-7xl">

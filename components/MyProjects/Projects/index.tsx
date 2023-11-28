@@ -1,10 +1,11 @@
 import React from 'react';
 import ProjectsCard from './ProjectCard';
 import { getGithubRepos } from '@/lib/getGithubRepos';
+import { githubRepos } from "@/lib/gqlQueries"
 import { repo } from '@/lib/types';
 
 async function Projects() {
-  const repos = await getGithubRepos()
+  const repos = await getGithubRepos(githubRepos)
   // console.log(repos)
   return (
     repos && repos.map((repo: repo) => (

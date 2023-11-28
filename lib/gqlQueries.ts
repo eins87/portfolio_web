@@ -1,6 +1,6 @@
 import { gql } from "graphql-request"
 
-const repos = gql`
+const githubRepos = gql`
       query {
         repositoryOwner (login: "${process.env.GITHUB_USERNAME as string}") {
           repositories (isFork: false, first: 10) {
@@ -36,38 +36,36 @@ const repos = gql`
       }
     `
 
-    const FavoriteRepos = gql`
-      query {
-        repositoryOwner (login: "${process.env.GITHUB_USERNAME as string}") {
-          repository (name: "${process.env.FAVORITE_REPO as string}") {
+const FavoriteRepos = gql`
+  query {
+    repositoryOwner (login: "${process.env.GITHUB_USERNAME as string}") {
+      repository (name: "${process.env.FAVORITE_REPO as string}") {
+        name
+        description
+        url
+        openGraphImageUrl
+        visibility
+        createdAt
+        updatedAt
+        languages(first: 10) {
+          nodes {
             name
-            description
+          }
+        }
+        primaryLanguage {
+          name
+        }
+        collaborators(first: 10) {
+          nodes {
+            name
+            login
+            avatarUrl
             url
-            openGraphImageUrl
-            visibility
-            createdAt
-            updatedAt
-            languages(first: 10) {
-              nodes {
-                name
-              }
-            }
-            primaryLanguage {
-              name
-            }
-            collaborators(first: 10) {
-              nodes {
-                name
-                login
-                avatarUrl
-                url
-              }
-            }
           }
         }
       }
-    `
+    }
+  }
+`
 
-    
-
-    export { repos, FavoriteRepos }
+export { githubRepos, FavoriteRepos }
