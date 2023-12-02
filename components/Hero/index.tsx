@@ -1,3 +1,5 @@
+"use client";
+
 import React from 'react'
 import Photo from './Photo'
 import SocialMedia from './SocialMedia'
@@ -5,7 +7,7 @@ import SocialMedia from './SocialMedia'
 function Hero() {
   return (
     <>
-      <div className='flex flex-col items-start justify-start w-full py-2 lg:w-1/2'>
+      <div className='flex flex-col items-start justify-start w-full py-12 md:py-20 lg:w-1/2'>
         <p className='text-base md:text-2xl lg:text-3xl'>Mobile & Web App Developer</p>
         <h2 className='text-5xl md:text-6xl lg:text-8xl'>Andi Winata</h2>
         <p className='pt-12 text-base md:text-lg'>About Me</p>
@@ -16,7 +18,7 @@ function Hero() {
           <SocialMedia />
         </div>
         <div className='items-center justify-center py-3'>
-          <div className='cursor-pointer button-shockwave'>
+          <div className='cursor-pointer button-shockwave' onClick={() => {}} >
             <p className='text-xs text-center'>Download CV</p>
           </div>
         </div>

@@ -12,7 +12,7 @@ async function Projects() {
       repo.name !== process.env.FAVORITE_REPO && repo.isFork === false && repo.visibility === 'PUBLIC' &&
         <ProjectsCard 
           key={repo.id}
-          name={repo.name.replace(/_/g, ' ')}
+          name={repo.name}
           description={repo.description}
           url={repo.url}
           languages={repo.languages}

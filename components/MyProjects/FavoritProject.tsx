@@ -1,9 +1,10 @@
+"use Client";
+
 import { Suspense } from 'react'
 import FavoritProjectSkeleton from './LoadingSkeleton/FavoritProjectSkeleton'
 import { getFavoriteRepo }  from '@/lib/getGithubRepos'
 import { FavoriteRepos } from "@/lib/gqlQueries"
 import Image from 'next/image'
-import squareCard  from '@/public/assets/squareCard.png'
 import getLogoPath from '@/lib/getLogo'
 
 async function FavoritProject() {
@@ -16,13 +17,13 @@ async function FavoritProject() {
             <div className="relative w-full max-w-lg">
               {/* <div className="absolute top-0 rounded-full bg-violet-300 -left-4 w-72 h-72 mix-blend-multiply filter blur-3xl opacity-70 animate-blob"></div>
               <div className="absolute rounded-full bg-fuchsia-300 -bottom-16 right-20 w-72 h-72 mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-4000"></div> */}
-              <div className="relative glow-box">
+              <div className="relative rounded-2xl glow-box">
                 <Image 
                   priority
-                  className="object-cover object-center mx-auto rounded-lg shadow-2xl" 
+                  className="object-cover object-center mx-auto shadow-2xl" 
                   alt="favorite_project" 
-                  src={favoriteRepo.openGraphImageUrl || squareCard}
-                  width={1280}
+                  src={`https://raw.githubusercontent.com/eins87/${favoriteRepo.name}/main/screenshoots/sc.png?token=GHSAT0AAAAAACJWWPSGQI4AI2RGP67GQ2DAZLKV5IQ`}
+                  width={640}
                   height={640}
                 />
               </div>
@@ -37,7 +38,7 @@ async function FavoritProject() {
           <div className="flex flex-wrap w-full mt-2 -mx-4">
                 {
                   favoriteRepo.languages && favoriteRepo.languages.nodes.slice(0, 4).map((language: { name: string, color: string }) => (
-                    <div className="flex flex-col items-center justify-center p-4" key={language.name}>
+                    <div className="flex flex-col items-center justify-center p-3" key={language.name}>
                       <div className="">
                         <Image 
                           src={getLogoPath(language.name.toLowerCase())}
@@ -52,6 +53,11 @@ async function FavoritProject() {
                     </div>
                   ))
                 }   
+          </div>
+          <div className="flex flex-wrap w-full mt-4 -mx-4">
+            <div className="flex items-center justify-center w-full px-4 py-2 mb-4 text-base font-bold text-white bg-black rounded cursor-pointer md:w-auto md:mb-0 hover:bg-gray-800">
+              <a href={favoriteRepo.url} target="_blank" rel="noopener noreferrer">View Project</a>
+            </div>
           </div>
         </div>
       </div>

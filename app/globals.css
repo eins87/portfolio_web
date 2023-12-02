@@ -192,18 +192,29 @@
 }
 
 .glass {
+  @apply shadow-2xl;
   transform-style: preserve-3d;
   position: absolute;
   inset: 8px;
   border-radius: 55px;
   border-top-right-radius: 100%;
   background: linear-gradient(0deg, rgba(255, 255, 255, 0.349) 0%, rgba(255, 255, 255, 0.815) 100%);
-  /* -webkit-backdrop-filter: blur(5px);
-  backdrop-filter: blur(5px); */
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
   transform: translate3d(0px, 0px, 25px);
   border-left: 1px solid white;
   border-bottom: 1px solid white;
   transition: all 0.5s ease-in-out;
+}
+
+.card-image {
+  position: absolute;
+  inset: 0;
+  border-radius: 50px;
+  background: linear-gradient(127deg, rgb(57, 74, 75) 0%, rgba(12,12,14,0.639093137254902) 100%);
+  transform-style: preserve-3d;
+  transform: translate3d(0, 0, 25px);
+  overflow: hidden;
 }
 
 .content {
@@ -213,14 +224,14 @@
 
 .content .title {
   display: block;
-  color: #00894d;
+  color: #1B1C2B;
   font-weight: 900;
   font-size: 20px;
 }
 
 .content .text {
   display: block;
-  color: rgba(0, 137, 78, 0.7647058824);
+  color: #1B2424;
   font-size: 15px;
   margin-top: 20px;
 }
@@ -253,7 +264,7 @@
 .bottom .view-more .view-more-button {
   background: none;
   border: none;
-  color: #1a1b1b;
+  color: #1B1C2B;
   font-weight: bolder;
   font-size: 12px;
 }
@@ -265,13 +276,13 @@
   max-height: 15px;
 }
 
-.bottom .social-buttons-container {
+.bottom .logo-container {
   display: flex;
   gap: 10px;
   transform-style: preserve-3d;
 }
 
-.bottom .social-buttons-container .social-button {
+.bottom .logo-container .logo-button {
   width: 30px;
   aspect-ratio: 1;
   padding: 5px;
@@ -283,36 +294,36 @@
   box-shadow: rgba(5, 71, 17, 0.5) 0px 7px 5px -5px;
 }
 
-.bottom .social-buttons-container .social-button:first-child {
+.bottom .logo-container .logo-button:first-child {
   transition: transform 0.2s ease-in-out 0.4s, box-shadow 0.2s ease-in-out 0.4s;
 }
 
-.bottom .social-buttons-container .social-button:nth-child(2) {
+.bottom .logo-container .logo-button:nth-child(2) {
   transition: transform 0.2s ease-in-out 0.6s, box-shadow 0.2s ease-in-out 0.6s;
 }
 
-.bottom .social-buttons-container .social-button:nth-child(3) {
+.bottom .logo-container .logo-button:nth-child(3) {
   transition: transform 0.2s ease-in-out 0.8s, box-shadow 0.2s ease-in-out 0.8s;
 }
 
-.bottom .social-buttons-container .social-button .svg {
+.bottom .logo-container .logo-button .svg {
   width: 15px;
   fill: #00894d;
 }
 
-.bottom .social-buttons-container .social-button:hover {
+.bottom .logo-container .logo-button:hover {
   background: black;
 }
 
-.bottom .social-buttons-container .social-button:hover .svg {
+.bottom .logo-container .logo-button:hover .svg {
   fill: white;
 }
 
-.bottom .social-buttons-container .social-button:active {
+.bottom .logo-container .logo-button:active {
   background: rgb(255, 234, 0);
 }
 
-.bottom .social-buttons-container .social-button:active .svg {
+.bottom .logo-container .logo-button:active .svg {
   fill: black;
 }
 
@@ -323,7 +334,7 @@
   transform-style: preserve-3d;
 }
 
-.logo .circle {
+.logo .circle-card {
   display: block;
   position: absolute;
   aspect-ratio: 1;
@@ -390,7 +401,7 @@
   box-shadow: rgba(5, 71, 17, 0.3) 30px 50px 25px -40px, rgba(5, 71, 17, 0.1) 0px 25px 30px 0px;
 }
 
-.parent:hover .card .bottom .social-buttons-container .social-button {
+.parent:hover .card .bottom .logo-container .logo-button {
   transform: translate3d(0, 0, 50px);
   box-shadow: rgba(5, 71, 17, 0.2) -5px 20px 10px 0px;
 }
