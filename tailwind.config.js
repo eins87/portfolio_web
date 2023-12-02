@@ -11,6 +11,8 @@ module.exports = {
       center: true,
       padding: "2rem",
       screens: {
+        'xs': '375px',
+        // => @media (min-width: 375px) { ... }
         'sm': '640px',
         // => @media (min-width: 640px) { ... }
         'md': '768px',

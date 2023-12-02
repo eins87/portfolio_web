@@ -3,7 +3,7 @@ import { gql } from "graphql-request"
 const githubRepos = gql`
       query {
         repositoryOwner (login: "${process.env.GITHUB_USERNAME as string}") {
-          repositories (isFork: false, first: 10) {
+          repositories (isFork: false, first: 20) {
             nodes {
               name
               description

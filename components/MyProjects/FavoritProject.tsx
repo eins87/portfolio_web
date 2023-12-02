@@ -32,18 +32,18 @@ async function FavoritProject() {
         <div className="flex flex-col items-start mt-12 mb-16 text-left lg:flex-grow lg:w-1/2 lg:pl-6 xl:pl-24 md:mb-0 xl:mt-0">
           <span className="mb-8 text-xs font-bold tracking-widest uppercase"> My Favorite Project </span>
           <h1 className="mb-8 text-4xl font-bold leading-none tracking-tighter md:text-7xl lg:text-5xl">{favoriteRepo.name.replace(/_/g, " ")}</h1>
-          <p className="mb-8 text-base leading-relaxed text-left">{favoriteRepo.description}</p>
+          <p className="mb-4 text-base leading-relaxed text-justify">{favoriteRepo.description}</p>
           <div className="py-2 mt-4 text-xs font-bold tracking-widest uppercase">Primary Language</div>
-          <div className="flex flex-wrap justify-between w-full mt-2 -mx-4 text-left">
+          <div className="flex flex-wrap w-full mt-2 -mx-4">
                 {
                   favoriteRepo.languages && favoriteRepo.languages.nodes.slice(0, 4).map((language: { name: string, color: string }) => (
-                    <div className="flex flex-col w-1/4 p-4" key={language.name}>
+                    <div className="flex flex-col items-center justify-center p-4" key={language.name}>
                       <div className="">
                         <Image 
                           src={getLogoPath(language.name.toLowerCase())}
                           alt={language.name}
-                          width={100}
-                          height={100}
+                          width={50}
+                          height={50}
                         />
                       </div> 
                       <div className="py-2 text-center max-sm:text-xs">

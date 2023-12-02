@@ -1,10 +1,6 @@
 import { GraphQLClient } from "graphql-request"
 import { cache } from "react"
 
-// export const revalidate = 60 * 60 * 4 // revalidate data setiap 4 jam
-
-// const githubEndpoint = process.env.GITHUB_GRAPHQL_ENDPOINT as string
-
 const requestConfig = {
   headers: {
     authorization: `Bearer ${process.env.GITHUB_GRAPHQL_API_KEY}`,

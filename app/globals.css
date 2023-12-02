@@ -122,28 +122,13 @@
 	}
 }
 
-.photo-mask {
-  mask-image: url(../public/assets/shape/photo-mask2.svg);
-  mask-repeat: no-repeat;
-  mask-position: center;
-  mask-size: contain;
+/* photo container */
+.photo-container {
+  @apply absolute max-w-2xl overflow-hidden -right-0 md:max-w-6xl -z-10 sm:top-20 top-48;
 }
 
-.photo-bg {
-  background: url(../public/assets/photo-bg.svg);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 120%;
-  z-index: -50;
-}
-
-.quote-mask {
-  mask-image: url(../public/assets/shape/quote-mask.svg);
-  mask-repeat: no-repeat;
-  mask-position: center;
-  mask-size: contain;
-  background-color: blueviolet;
-  z-index: -10;
+.photo-container .photo {
+  @apply  relative top-0 object-cover w-full h-full -right-32 md:-right-40 lg:-right-48 xl:-right-56 2xl:-right-60;
 }
 
 /* animation loader */
@@ -192,7 +177,7 @@
 
 /* 3d card */
 .parent {
-  width: 290px;
+  width: 300px;
   height: 300px;
   perspective: 1000px;
 }
@@ -268,14 +253,14 @@
 .bottom .view-more .view-more-button {
   background: none;
   border: none;
-  color: #00c37b;
+  color: #1a1b1b;
   font-weight: bolder;
   font-size: 12px;
 }
 
 .bottom .view-more .svg {
   fill: none;
-  stroke: #00c37b;
+  stroke: #5E6570;
   stroke-width: 3px;
   max-height: 15px;
 }
