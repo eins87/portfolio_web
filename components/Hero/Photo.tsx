@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
-import me_photo from '@/public/assets/me_photo.png'
+import me_photo from '@/public/assets/me_photo_1.png'
 
 function Photo() {
   return (

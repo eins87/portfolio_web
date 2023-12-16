@@ -4,7 +4,7 @@ import { GithubIcon, InstagramIcon, TwitterIcon, Heart } from 'lucide-react'
 function Footer() {
   return (
     <footer className='container'>
-      <div className='flex flex-row items-center justify-between w-full py-10'>
+      <div className='flex flex-row items-center justify-between w-full py-8'>
           <p className=''>&copy; 2023</p>
           <div className='flex flex-row gap-2'>
             <p><Heart /></p>

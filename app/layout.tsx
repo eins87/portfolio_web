@@ -52,9 +52,9 @@ export default function RootLayout({
             {children}
           </main>
           <Footer />
+          <Shape />
+          <ParticlesComp />
         </ThemeProvider>
-        <Shape />
-        <ParticlesComp />
       </body>
     </html>
   )

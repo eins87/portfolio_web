@@ -31,7 +31,7 @@ const Navbar = () => {
   
   return (
     <nav className='container'>
-      <animated.div style={ spring } className='flex flex-row items-center justify-between px-5 py-2 my-10 border-2 rounded-full bg-slate-600 border-slate-300'>
+      <animated.div style={ spring } className='flex flex-row items-center justify-between px-5 py-2 my-10 border-2 rounded-full backdrop-blur-sm'>
         {/* desktop */}
         <div className=''>
           <Link className='text-lg font-bold md:text-2xl' href="/">Portfolio</Link>

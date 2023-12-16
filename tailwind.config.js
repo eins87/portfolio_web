@@ -11,8 +11,6 @@ module.exports = {
       center: true,
       padding: "2rem",
       screens: {
-        'xs': '375px',
-        // => @media (min-width: 375px) { ... }
         'sm': '640px',
         // => @media (min-width: 640px) { ... }
         'md': '768px',
@@ -66,24 +64,20 @@ module.exports = {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
-          keyframes: {
-            "accordion-down": {
-              from: { height: "0" },
-              to: { height: "var(--accordion-height)" },
-            },
-          },
-          animation: {
-            "accordion-down": "accordion-down 0.2s ease-out",
-            "accordion-up": "accordion-up 0.2s ease-out",
-          },
+      keyframes: {
+        "accordion-down": {
+          from: { height: "0" },
+          to: { height: "var(--accordion-height)" },
+        },
       },
-        // extend: {
-        //   backgroundImage: {
-        //     'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        //     'gradient-conic':
-        //       'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-        //   },
-        // },
+      animation: {
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
+      },
+      backgroundImage: {
+        'gradient-radial': 'linear-gradient(to right top, #dbe5ca, #d0e7d4, #cbe7df, #cce6e6, #d2e4ea, #c9deea, #c3d7e9, #c0cfe8, #b0c1e8, #a3b2e6, #9ba2e3, #9791de)',
+      },
     },
-    plugins: [require("tailwindcss-animate")],
+  },
+  plugins: [require("tailwindcss-animate")],
 }

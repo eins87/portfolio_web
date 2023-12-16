@@ -2,7 +2,7 @@
   "extends": "next/core-web-vitals",
   "rules": {
     "react/no-unescaped-entities": "off",
-    "@next/next/no-page-custom-font": "off"
+    "@next/next/no-page-custom-font": "off",
+    "indent": ["error", 2] // Set the desired indent size here
   },
-  "indent": ["error", 2] // Set the desired indent size here
 }

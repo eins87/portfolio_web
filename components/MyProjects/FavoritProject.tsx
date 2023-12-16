@@ -35,7 +35,7 @@ async function FavoritProject() {
           <h1 className="mb-8 text-4xl font-bold leading-none tracking-tighter md:text-7xl lg:text-5xl">{favoriteRepo.name.replace(/_/g, " ")}</h1>
           <p className="mb-4 text-base leading-relaxed text-justify">{favoriteRepo.description}</p>
           <div className="py-2 mt-4 text-xs font-bold tracking-widest uppercase">Primary Language</div>
-          <div className="flex flex-wrap w-full mt-2 -mx-4">
+          <div className="flex flex-wrap w-full mt-2 -mx-3">
                 {
                   favoriteRepo.languages && favoriteRepo.languages.nodes.slice(0, 4).map((language: { name: string, color: string }) => (
                     <div className="flex flex-col items-center justify-center p-3" key={language.name}>
@@ -54,7 +54,7 @@ async function FavoritProject() {
                   ))
                 }   
           </div>
-          <div className="flex flex-wrap w-full mt-4 -mx-4">
+          <div className="flex flex-wrap w-full mt-4">
             <div className="flex items-center justify-center w-full px-4 py-2 mb-4 text-base font-bold text-white bg-black rounded cursor-pointer md:w-auto md:mb-0 hover:bg-gray-800">
               <a href={favoriteRepo.url} target="_blank" rel="noopener noreferrer">View Project</a>
             </div>
