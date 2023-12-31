@@ -3,10 +3,7 @@ import { ThemeProvider } from '@/components/ui/theme-provider'
 import './globals.css'
 import localFont from 'next/font/local'
 import { Questrial } from 'next/font/google'
-import Header from '@/components/Header'
 import ParticlesComp from '@/components/ui/ParticlesComp'
-import Footer from '@/components/Footer'
-import Shape from '@/components/ui/shape'
 
 const freightDisPro = localFont({ 
   src: [
@@ -47,15 +44,10 @@ export default function RootLayout({
     <html lang="en">
       <body className={questrial.className}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
-          <Header />
-          <main className="container pt-28 md:pt-32">
-            {children}
-          </main>
-          <Footer />
-          <Shape />
+          {children}
           <ParticlesComp />
         </ThemeProvider>
-      </body>
+        </body>
     </html>
   )
 }

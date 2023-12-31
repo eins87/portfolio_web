@@ -1,3 +1,6 @@
+import { z } from "zod";
+
+
 export type Quote = {
     q: string;
     a: string;
@@ -28,3 +31,18 @@ export interface repos {
       fork: boolean
   }]
 }
+
+export const formSchema = z.object({
+  company_name: z.string().min(4, {
+    message: "Company Name must at least 4 characters",
+  }),
+  fullname: z.string().min(4, {
+    message: "Username must be at least 4 characters.",
+  }),
+  email: z.string().email({
+    message: "Please enter a valid email.",
+  }),
+  msg: z.string().min(10, {
+    message: "Message must be at least 10 characters.",
+  }),
+})

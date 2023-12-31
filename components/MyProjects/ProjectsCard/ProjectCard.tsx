@@ -5,6 +5,7 @@ import ProjectsCardSkeleton from '../LoadingSkeleton/ProjectsCardSkeleton'
 import Image from 'next/image'
 import getLogoPath from '@/lib/getLogo'
 import viewMore from '@/public/assets/viewMore.svg'
+import { Button } from '@/components/ui/button'
 
 function ProjectCard({ name, description, url, languages,  PrimaryLanguage, openGraphImageUrl}: { name: string, description: string, url: string, languages: any, PrimaryLanguage: { name: string }, openGraphImageUrl: string}) {
   // console.log(name)
@@ -44,23 +45,23 @@ function ProjectCard({ name, description, url, languages,  PrimaryLanguage, open
             <div className="logo-container">
               {
                 languages && languages.nodes.slice(0, 3).map((language: { name: string, color: string }) => (
-                  <button className="logo-button .logo-button1" key={language.name}>
+                  <div className="flex flex-row logo-button" key={language.name}>
                     <Image 
                       src={getLogoPath(language.name)}
                       alt={language.name}
                       width={20}
                       height={20}
                     />
-                  </button>
+                  </div>
                 ))
               }
             </div>
             <div className="view-more">
-                <button className="view-more-button" onClick={() => {window.open(url, '_blank')}}>View more</button>
-                <Image
-                  src={viewMore}
-                  alt="viewMore"
-                />
+              <Button variant={'outline'} onClick={() => {window.open(url, '_blank')}}>
+                <p>
+                  View More <span>→</span>
+                </p>
+              </Button>
             </div>
           </div>
         </div>

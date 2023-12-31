@@ -6,6 +6,8 @@ import { getFavoriteRepo }  from '@/lib/getGithubRepos'
 import { FavoriteRepos } from "@/lib/gqlQueries"
 import Image from 'next/image'
 import getLogoPath from '@/lib/getLogo'
+import { Button } from '../ui/button';
+import Link from 'next/link';
 
 async function FavoritProject() {
   const favoriteRepo = await getFavoriteRepo(FavoriteRepos)
@@ -13,20 +15,18 @@ async function FavoritProject() {
     <Suspense fallback={<FavoritProjectSkeleton />}>
       <div className="flex flex-wrap items-center mx-auto max-w-7xl">
         <div className="w-full lg:max-w-lg lg:w-1/2 rounded-xl">
-          <div>
-            <div className="relative w-full max-w-lg">
-              {/* <div className="absolute top-0 rounded-full bg-violet-300 -left-4 w-72 h-72 mix-blend-multiply filter blur-3xl opacity-70 animate-blob"></div>
-              <div className="absolute rounded-full bg-fuchsia-300 -bottom-16 right-20 w-72 h-72 mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-4000"></div> */}
-              <div className="relative rounded-2xl glow-box">
-                <Image 
-                  priority
-                  className="object-cover object-center mx-auto shadow-2xl" 
-                  alt="favorite_project" 
-                  src={`https://raw.githubusercontent.com/eins87/${favoriteRepo.name}/main/screenshoots/sc.png?token=GHSAT0AAAAAACJWWPSGQI4AI2RGP67GQ2DAZLKV5IQ`}
-                  width={640}
-                  height={640}
-                />
-              </div>
+          <div className="relative w-full max-w-lg">
+            {/* <div className="absolute top-0 rounded-full bg-violet-300 -left-4 w-72 h-72 mix-blend-multiply filter blur-3xl opacity-70 animate-blob"></div>
+            <div className="absolute rounded-full bg-fuchsia-300 -bottom-16 right-20 w-72 h-72 mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-4000"></div> */}
+            <div className="relative rounded-2xl glow-box">
+              <Image 
+                priority
+                className="object-cover object-center mx-auto shadow-2xl" 
+                alt="favorite_project" 
+                src={`https://raw.githubusercontent.com/eins87/${favoriteRepo.name}/main/screenshoots/sc.png?token=GHSAT0AAAAAACJWWPSGQI4AI2RGP67GQ2DAZLKV5IQ`}
+                width={640}
+                height={640}
+              />
             </div>
           </div>
         </div>
@@ -55,9 +55,9 @@ async function FavoritProject() {
                 }   
           </div>
           <div className="flex flex-wrap w-full mt-4">
-            <div className="flex items-center justify-center w-full px-4 py-2 mb-4 text-base font-bold text-white bg-black rounded cursor-pointer md:w-auto md:mb-0 hover:bg-gray-800">
-              <a href={favoriteRepo.url} target="_blank" rel="noopener noreferrer">View Project</a>
-            </div>
+            <Button>
+              <Link href={favoriteRepo.url} target="_blank" rel='noopener noreferer' className='font-bold'>View Project</Link>
+            </Button>
           </div>
         </div>
       </div>

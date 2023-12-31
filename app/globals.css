@@ -180,29 +180,24 @@
 /* 3d card */
 .parent {
   width: 300px;
-  height: 300px;
+  height: 450px;
   perspective: 1000px;
 }
 
 .card {
+  border-radius: 55px;
   height: 100%;
-  border-radius: 50px;
-  background: linear-gradient(127deg, rgba(84,135,139,1) 0%, rgba(12,12,14,0.639093137254902) 100%);
+  background: linear-gradient(90deg, hsla(217, 100%, 50%, 1) 0%, hsla(186, 100%, 69%, 1) 100%);
   transition: all 0.5s ease-in-out;
   transform-style: preserve-3d;
   box-shadow: rgba(5, 71, 17, 0) 40px 50px 25px -40px, rgba(5, 71, 17, 0.2) 0px 25px 25px -5px;
 }
 
 .glass {
-  @apply shadow-2xl;
+  @apply absolute shadow-2xl backdrop-blur-sm rounded-[65px] inset-2 top-60;
   transform-style: preserve-3d;
-  position: absolute;
-  inset: 8px;
-  border-radius: 55px;
   border-top-right-radius: 100%;
-  background: linear-gradient(0deg, rgba(255, 255, 255, 0.349) 0%, rgba(255, 255, 255, 0.815) 100%);
-  -webkit-backdrop-filter: blur(3px);
-  backdrop-filter: blur(3px);
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0.349) 0%, rgba(255, 255, 255, 0.3) 100%);
   transform: translate3d(0px, 0px, 25px);
   border-left: 1px solid white;
   border-bottom: 1px solid white;
@@ -210,17 +205,16 @@
 }
 
 .card-image {
-  position: absolute;
+  @apply absolute p-2;
   inset: 0;
-  border-radius: 50px;
-  background: linear-gradient(127deg, rgb(57, 74, 75) 0%, rgba(12,12,14,0.639093137254902) 100%);
+  border-radius: 60px;
   transform-style: preserve-3d;
   transform: translate3d(0, 0, 25px);
   overflow: hidden;
 }
 
 .content {
-  padding: 100px 60px 0px 30px;
+  padding: 293px 60px 0px 30px;
   transform: translate3d(0, 0, 26px);
 }
 
@@ -235,7 +229,7 @@
   display: block;
   color: #1B2424;
   font-size: 15px;
-  margin-top: 20px;
+  margin-top: 8px;
 }
 
 .bottom {
@@ -313,16 +307,8 @@
   fill: #00894d;
 }
 
-.bottom .logo-container .logo-button:hover {
-  background: black;
-}
-
 .bottom .logo-container .logo-button:hover .svg {
   fill: white;
-}
-
-.bottom .logo-container .logo-button:active {
-  background: rgb(255, 234, 0);
 }
 
 .bottom .logo-container .logo-button:active .svg {

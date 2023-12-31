@@ -4,9 +4,9 @@ import Link from 'next/link'
 function NavLinks() {
   return (
     <>
-      <Link href="/about">About</Link>
-      <Link href="/projects">Projects</Link>
-      <Link href="/contact">Contact</Link>
+      <Link href="/about" className='hover:text-blue-300'>About</Link>
+      <Link href="/projects" className='hover:text-blue-300'>Projects</Link>
+      <Link href="/contact" className='hover:text-blue-300'>Contact</Link>
     </>
   )
 }
