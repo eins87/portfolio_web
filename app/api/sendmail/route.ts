@@ -5,13 +5,13 @@ export const dynamic = 'force-dynamic'
 
 export async function POST(req: NextRequest) {
   const { company_name, fullname, email, msg } = await req.json()
-  // console.log(company_name)
+  // console.log(email)
 
   const transporter = nodemailer.createTransport({
-    service: 'gmail',
+    // service: 'gmail',
     host: process.env.NODEMAILER_HOST,
-    port: 465,
-    secure: true, // true for 465, false for other ports
+    port: 587,
+    secure: false, // true for 465, false for other ports
     auth: {
         user: process.env.NODEMAILER_USER,
         pass: process.env.NODEMAILER_PASS
@@ -19,11 +19,15 @@ export async function POST(req: NextRequest) {
   });
 
   const mailOptions = {
-    from: email,
-    to: process.env.NODEMAILER_USER,
+    from: process.env.NODEMAILER_USER,
+    to: email,
+    bcc: process.env.NODEMAILER_USER,
     subject: `Message from ${fullname} - ${company_name}`,
     text: msg,
-    html: `<p>${msg}</p>`
+    html: `<h2>Hi, thank you for contacting me</h2><br />
+          <p>Your Message:</p>
+          <p>${msg}</p>
+          <p>has been received</p>`
   }
 
   try {

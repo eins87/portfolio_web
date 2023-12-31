@@ -33,7 +33,7 @@ function ContactMeForm() {
  
   // 2. Define a submit handler.
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    // console.log(values)
+    // console.log(values.email)
     const res = await fetch('/api/sendmail', {
       method: 'POST',
       body: JSON.stringify(values)
