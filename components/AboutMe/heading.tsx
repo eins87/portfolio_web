@@ -3,7 +3,7 @@
 import { animated, useSpring } from '@react-spring/web'
 import { useEffect, useState } from 'react'
 
-function heading() {
+function Heading() {
   const [key, setKey] = useState(Math.random());
 
   useEffect(() => {
@@ -44,4 +44,4 @@ function heading() {
   )
 }
 
-export default heading
+export default Heading

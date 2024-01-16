@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 import { useSpring, animated } from '@react-spring/web'
 
-function decryption() {
+function Description() {
   const [key, setKey] = useState(Math.random());
 
   useEffect(() => {
@@ -32,4 +32,4 @@ function decryption() {
   )
 }
 
-export default decryption
+export default Description

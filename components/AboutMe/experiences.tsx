@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 import { useSpring, animated } from '@react-spring/web'
 
-function experiences() {
+function Experiences() {
   const [key, setKey] = useState(Math.random());
 
   useEffect(() => {
@@ -26,4 +26,4 @@ function experiences() {
   )
 }
 
-export default experiences
+export default Experiences
