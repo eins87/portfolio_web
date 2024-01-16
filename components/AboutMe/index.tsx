@@ -1,7 +1,13 @@
+import Decryption from './decryption'
+import Experiences from './experiences'
 
 function AboutMe() {
+  
   return (
-    <div>AboutMe component</div>
+    <>
+      <Decryption />
+      <Experiences />
+    </>
   )
 }
 

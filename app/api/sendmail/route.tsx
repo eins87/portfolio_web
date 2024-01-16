@@ -1,5 +1,7 @@
 import { NextResponse, NextRequest } from 'next/server'
 import nodemailer from 'nodemailer'
+import { render } from '@react-email/render';
+import { SlackConfirmEmail } from '@/emails/Confirm'
 
 export const dynamic = 'force-dynamic'
 
@@ -8,32 +10,28 @@ export async function POST(req: NextRequest) {
   // console.log(email)
 
   const transporter = nodemailer.createTransport({
-    // service: 'gmail',
+    service: 'gmail',
     host: process.env.NODEMAILER_HOST,
-    port: 587,
-    secure: false, // true for 465, false for other ports
+    port: 465,
+    secure: true, // true for 465, false for other ports
     auth: {
         user: process.env.NODEMAILER_USER,
         pass: process.env.NODEMAILER_PASS
     }
   });
 
+  const emailTemplate = render(<SlackConfirmEmail msg={msg} fullname={fullname} />)
+
   const mailOptions = {
     from: process.env.NODEMAILER_USER,
     to: email,
     bcc: process.env.NODEMAILER_USER,
     subject: `Message from ${fullname} - ${company_name}`,
-    text: msg,
-    html: `<h2>Hi, thank you for contacting me</h2><br />
-          <p>Your Message:</p>
-          <p>${msg}</p>
-          <p>has been received</p>`
+    html: emailTemplate
   }
 
   try {
-    const info = await transporter.sendMail(mailOptions);
-  
-    // console.log('Email sent:', info.response);
+    await transporter.sendMail(mailOptions);
     return NextResponse.json({ message: 'eMail sent' }, {status: 200});
   } catch (e) {
     console.error('Error sending email:', e);

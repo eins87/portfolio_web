@@ -1,4 +1,4 @@
-import ContactMeForm from '@/components/ContactMeForm'
+import ContactMeForm from '@/components/ContactMe/contactmeform'
 
 function Contact() {
   return (

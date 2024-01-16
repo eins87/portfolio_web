@@ -7,7 +7,7 @@ function Footer() {
   return (
     <footer className='container'>
       <div className='flex flex-row items-center justify-between w-full py-8'>
-          <p className=''>&copy; 2023</p>
+          <p className=''>&copy; 2024</p>
           <div className='flex flex-row gap-2'>
             <p><Heart /></p>
             <p>you all</p>

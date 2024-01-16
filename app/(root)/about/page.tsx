@@ -1,12 +1,10 @@
 import AboutMe from "@/components/AboutMe";
+import Heading from "@/components/AboutMe/heading";
 
 function About() {
   return (
     <section className="flex flex-col">
-      <div className="flex flex-col items-center justify-center w-full">
-        <h1 className="text-5xl font-bold">About</h1>
-        <p className="text-2xl font-light">About Me</p>
-      </div>
+      <Heading />
       <div className="flex flex-col items-center justify-center w-full">
         <AboutMe />
       </div>
