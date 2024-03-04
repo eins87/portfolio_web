@@ -485,11 +485,11 @@
 }
 
 .direction-l {
-  @apply relative w-[334px] lg:w-[614px] text-right float-left;
+  @apply relative w-[270px] lg:w-[614px] text-right float-left;
 }
 
 .direction-r {
-  @apply relative w-[334px] lg:w-[614px] text-left float-right;
+  @apply relative w-[270px] lg:w-[614px] text-left float-right;
 }
 
 .flag-wrapper {
@@ -584,12 +584,10 @@
 
 .direction-r .desc {
   margin: 1em 0 0 0.75em;
-  text-align: left;
 }
 
 .direction-l .desc {
   margin: 1em 0.75em 0 0;
-  text-align: right;
 }
 
 /* ================ Timeline Media Queries ================ */

@@ -5,9 +5,9 @@ export const experiences = [
     company: 'Freelancer',
     time: '2023 present',
     description: [
-      'Learned the principles of object-oriented design and implementation.',
-      'Developed applications using Java and C++.',
-      'Learned the basics of software engineering.'
+      'Working on various projects and tasks for clients.',
+      'Developing and implementing new features and functionality.',
+      'Collaborating with other team members and stakeholders.'
     ],
   },
   {
