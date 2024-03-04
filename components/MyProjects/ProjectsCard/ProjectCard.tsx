@@ -1,17 +1,37 @@
 'use client'
 
-import React, { Suspense } from 'react'
+import React, { Suspense, useEffect, useState } from 'react'
 import ProjectsCardSkeleton from '../LoadingSkeleton/ProjectsCardSkeleton'
 import Image from 'next/image'
 import getLogoPath from '@/lib/getLogo'
 import viewMore from '@/public/assets/viewMore.svg'
 import { Button } from '@/components/ui/button'
+import { useSpring, animated } from '@react-spring/web'
 
-function ProjectCard({ name, description, url, languages,  PrimaryLanguage, openGraphImageUrl}: { name: string, description: string, url: string, languages: any, PrimaryLanguage: { name: string }, openGraphImageUrl: string}) {
-  // console.log(name)
+function ProjectCard({ name, description, url, languages,  PrimaryLanguage, openGraphImageUrl, index }: { name: string, description: string, url: string, languages: any, PrimaryLanguage: { name: string }, openGraphImageUrl: string, index: number }) {
+  const [key, setKey] = useState(Math.random());
+
+  useEffect(() => {
+    setKey(Math.random());
+  }, []);
+  
+  const slideUp = useSpring({
+    from: { opacity: 0, y: 200 },
+    to: { opacity: 1, y: 0 },
+    config: {
+      mass: 4.8,
+      tension: 213,
+      friction: 60,
+      velocity: 0.011
+    },
+    delay: index > 0 ? index * 200 : 200,
+  })
+
+  // console.log(index)
+
   return (
     <Suspense fallback={<ProjectsCardSkeleton />}>
-      <div className='parent'>
+      <animated.div style={slideUp} className='parent'>
         <div className="card">
           <div className='card-image'>
             <Image
@@ -65,7 +85,7 @@ function ProjectCard({ name, description, url, languages,  PrimaryLanguage, open
             </div>
           </div>
         </div>
-      </div>
+      </animated.div>
     </Suspense>
   )
 }

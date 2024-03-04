@@ -1,36 +1,60 @@
-"use Client";
-
-import { Suspense } from 'react'
+"use client";
+import { Suspense, useEffect, useState } from 'react'
 import FavoritProjectSkeleton from './LoadingSkeleton/FavoritProjectSkeleton'
-import { getFavoriteRepo }  from '@/lib/getGithubRepos'
-import { FavoriteRepos } from "@/lib/gqlQueries"
 import Image from 'next/image'
 import getLogoPath from '@/lib/getLogo'
 import { Button } from '../ui/button';
 import Link from 'next/link';
+import { useSpring, animated } from '@react-spring/web';
 
-async function FavoritProject() {
-  const favoriteRepo = await getFavoriteRepo(FavoriteRepos)
+async function FavoritProject({ favoriteRepo }: { favoriteRepo: any }) {
+  const [key, setKey] = useState(Math.random());
+
+  useEffect(() => {
+    setKey(Math.random());
+  }, []);
+  
+  const slideRight = useSpring({
+    from: { opacity: 0, x: -200 },
+    to: { opacity: 1, x: 0 },
+    config: {
+      mass: 4.8,
+      tension: 213,
+      friction: 60,
+      velocity: 0.011
+    },
+    delay: 200,
+  })
+
+  const slideLeft = useSpring({
+    from: { opacity: 0, x: 200 },
+    to: { opacity: 1, x: 0 },
+    config: {
+      mass: 4.8,
+      tension: 213,
+      friction: 60,
+      velocity: 0.011
+    },
+    delay: 200,
+  })
   return (
     <Suspense fallback={<FavoritProjectSkeleton />}>
       <div className="flex flex-wrap items-center mx-auto max-w-7xl">
-        <div className="w-full lg:max-w-lg lg:w-1/2 rounded-xl">
+        <animated.div style={slideRight} className="w-full lg:max-w-lg lg:w-1/2 rounded-xl">
           <div className="relative w-full max-w-lg">
-            {/* <div className="absolute top-0 rounded-full bg-violet-300 -left-4 w-72 h-72 mix-blend-multiply filter blur-3xl opacity-70 animate-blob"></div>
-            <div className="absolute rounded-full bg-fuchsia-300 -bottom-16 right-20 w-72 h-72 mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-4000"></div> */}
             <div className="relative rounded-2xl glow-box">
               <Image 
                 priority
                 className="object-cover object-center mx-auto shadow-2xl" 
                 alt="favorite_project" 
-                src={`https://raw.githubusercontent.com/eins87/${favoriteRepo.name}/main/screenshoots/sc.png?token=GHSAT0AAAAAACJWWPSGQI4AI2RGP67GQ2DAZLKV5IQ`}
+                src={`https://raw.githubusercontent.com/eins87/${favoriteRepo?.name}/main/screenshoots/sc.png?token=GHSAT0AAAAAACJWWPSGQI4AI2RGP67GQ2DAZLKV5IQ`}
                 width={640}
                 height={640}
               />
             </div>
           </div>
-        </div>
-        <div className="flex flex-col items-start mt-12 mb-16 text-left lg:flex-grow lg:w-1/2 lg:pl-6 xl:pl-24 md:mb-0 xl:mt-0">
+        </animated.div>
+        <animated.div style={slideLeft} className="flex flex-col items-start mt-12 mb-16 text-left lg:flex-grow lg:w-1/2 lg:pl-6 xl:pl-24 md:mb-0 xl:mt-0">
           <span className="mb-8 text-xs font-bold tracking-widest uppercase"> My Favorite Project </span>
           <h1 className="mb-8 text-4xl font-bold leading-none tracking-tighter md:text-7xl lg:text-5xl">{favoriteRepo.name.replace(/_/g, " ")}</h1>
           <p className="mb-4 text-base leading-relaxed text-justify">{favoriteRepo.description}</p>
@@ -59,7 +83,7 @@ async function FavoritProject() {
               <Link href={favoriteRepo.url} target="_blank" rel='noopener noreferer' className='font-bold'>View Project</Link>
             </Button>
           </div>
-        </div>
+        </animated.div>
       </div>
     </Suspense>
   )
