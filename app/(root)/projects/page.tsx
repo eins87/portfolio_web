@@ -1,6 +1,5 @@
 import FavoritProject from '@/components/MyProjects/FavoritProject';
 import ProjectsCard from '@/components/MyProjects/ProjectsCard';
-import React, { useRef } from 'react';
 
 function Projects() {
   return (

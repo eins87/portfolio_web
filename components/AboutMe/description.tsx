@@ -22,12 +22,10 @@ function Description() {
     delay: 200,
   })
   return (
-    <animated.div style={slideRight}>
-      <div className='text-sm text-justify rounded-md lg:w-[75%]'>
-        <p className='py-3'>
-          Hello! I'm Andi Winata, a passionate mobile and web app developer with 4 years of experience in the industry, I've honed my skills in crafting intuitive and responsive applications that seamlessly integrate with modern technologies.
-        </p>
-      </div>
+    <animated.div style={slideRight} className='text-lg text-justify rounded-md lg:w-[75%]'>
+      <p className='py-3'>
+        Hello! I'm Andi Winata, a passionate mobile and web app developer with 4 years of experience in the industry, I've honed my skills in crafting intuitive and responsive applications that seamlessly integrate with modern technologies.
+      </p>
     </animated.div>
   )
 }
