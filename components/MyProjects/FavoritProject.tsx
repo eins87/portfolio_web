@@ -7,7 +7,7 @@ import { Button } from '../ui/button';
 import Link from 'next/link';
 import { useSpring, animated } from '@react-spring/web';
 
-async function FavoritProject({ favoriteRepo }: { favoriteRepo: any }) {
+function FavoritProject({ favoriteRepo }: { favoriteRepo: any }) {
   const [key, setKey] = useState(Math.random());
 
   useEffect(() => {
